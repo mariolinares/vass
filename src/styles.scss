@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.loader{
+    position: fixed;
+    z-index: 12;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffffda;
+}
+
+img.mat-card-image.card__content_image {
+    width: 80px;
+    }
+
+    .mat-card:not([class*=mat-elevation-z]) {
+        box-shadow:inherit
+    }
+
+
+    .card {
+        border: none;
+        text-align: center;
+        width: 100%;
+
+    &__content {
+        margin-top: 20px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+        .mat-card-title {
+            font-size: 16px;
+        }
+
+        .mar-card-image {
+            margin-top: inherit !important;
+        }
+
+        .mat-card-subtitle {
+            margin-bottom: 0;
+        }
+
+        &_image {
+            margin-top: 0;
+            width: 60px;
+
+            &:first-child {
+                margin-top: 0 !important;
+            }
+        }
+    }
+}
+
+
+.mat-card:not([class*=mat-elevation-z0]):hover{
+    box-shadow: none;
+  }

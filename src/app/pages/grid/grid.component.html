@@ -1,0 +1,54 @@
+<!-- 
+<button (click)="getModulo(1)">Cambiar modulo</button>
+ -->
+<div  class="container-fluid">
+    <div class="row" cdkDropListGroup>
+        <div class="col-sm-2" style="background-color: rgb(241 241 241);">
+            <ng-container *ngIf="products$ | async as products">
+                <app-buscador [products]="products"></app-buscador>
+            </ng-container>
+        </div>
+    
+        <div class="col-sm-10">
+            <div *ngFor="let estanteria of estanterias" class="estanteria">
+                <div class="agujeros vertical d-flex d-flex-column">
+                  
+                  <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_upward</mat-icon>
+                  <span>{{ estanteria.agujeros }}</span>
+                  <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_downward</mat-icon>
+                  
+
+                </div>
+                <div class="drag-container">
+                  <div class="section-heading">Estanteria {{ estanteria.id }}</div>
+                  <div
+                    cdkDropList
+                    id="{{ estanteria.id }}"
+                    cdkDropListOrientation="horizontal"
+                    [cdkDropListData]="estanteria.productlist"
+                    [cdkDropListConnectedTo]="connectedTo"
+                    class="example-list"
+                    (cdkDropListDropped)="drop($event)"
+                  >
+                    
+                    <div class="example-box" *ngFor="let estanteriaItem of estanteria.productlist" cdkDrag>
+                        <mat-card class="card">
+                          <div class="card__content">
+                            <img class="card__content_image" mat-card-image src="{{ estanteriaItem.image }}">
+                            <mat-card-header>
+                              <mat-card-title>{{ estanteriaItem.code }}</mat-card-title>
+                              <mat-card-title>{{ estanteriaItem.name }}</mat-card-title>
+                              <mat-card-subtitle>{{ estanteriaItem.description }}</mat-card-subtitle>
+                            </mat-card-header>
+                          </div>
+                        </mat-card>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<!-- <button (click)="addList()">Añadir estanteria</button>
+ -->

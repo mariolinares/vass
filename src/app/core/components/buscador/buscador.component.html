@@ -1,0 +1,31 @@
+<div class="header-search">
+  <h1>Tornillos</h1>
+</div>
+<div class="buscador">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm">
+  </div>
+  
+  <div
+    cdkDropList
+    #productList="cdkDropList"
+    [cdkDropListData]="products"
+    [cdkDropListConnectedTo]="connectedTo"
+    class="item-list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="item-box" *ngFor="let item of products | filter:filterTerm" cdkDrag>
+      <mat-card class="card">
+        <div class="card__content">
+          <img class="card__content_image" mat-card-image src="{{ item.image }}" alt=>
+          <mat-card-header>
+            <mat-card-title>{{ item.code }}</mat-card-title>
+            <mat-card-title>{{ item.name }}</mat-card-title>
+            <mat-card-subtitle>{{ item.description }}</mat-card-subtitle>
+          </mat-card-header>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  
+</div>

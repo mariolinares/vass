@@ -1,0 +1,41 @@
+
+
+.card {
+        border: none;
+        text-align: center;
+    
+
+    &__content {
+        margin-top: 20px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+        .mar-card-image {
+            margin-top: inherit !important;
+        }
+
+        .mat-card-subtitle {
+            margin-bottom: 0;
+        }
+
+        &_image {
+            margin-top: 0;
+            width: 60px;
+
+            &:first-child {
+                margin-top: 0 !important;
+            }
+        }
+    }
+}
+
+
+/* .buscador {
+    height: calc(100vh - 70px);
+    overflow: overlay;
+} */
+
+.header-search  {
+    margin-top: 50px;
+}
